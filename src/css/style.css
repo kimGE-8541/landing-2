@@ -1,0 +1,56 @@
+:root {
+    --text-color: #2B2F33;
+    --sub-text-color: #8C6E49;
+    --medi-bg-color: #EDF3F7;
+    --section-bg-color: #F7F5F1;
+    --cta-color: #F7F5F1;
+    --point-color: #A9BBC9;
+    --gray-color: #DDE3E8;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Pretendard", sans-serif;
+}
+
+.h1 {
+    @apply text-6xl font-bold;
+    font-family: 'Pretendard';
+}
+
+.h2 {
+    @apply text-4xl;
+    font-family: 'Pretendard';
+}
+
+.h3 {
+    @apply text-2xl;
+    font-family: 'Pretendard';
+}
+
+.b1 {
+    @apply text-lg;
+    font-family: 'Pretendard';
+}
+
+.caption {
+    @apply text-sm;
+    font-family: 'Pretendard';
+}
+
+.label {
+    @apply text-xs;
+    font-family: 'Pretendard';
+}
+
+.name {
+    @apply text-6xl;
+    font-family: 'NohHaeChan';
+}
+
+.container {
+    @apply mx-auto max-w-[1440px] w-full grid grid-cols-12 gap-6;
+}
