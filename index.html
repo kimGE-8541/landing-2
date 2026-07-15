@@ -5,26 +5,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
     <link rel="stylesheet" href="./src/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 
     <title>온리아이</title>
 </head>
 
 <body>
 
-    <header>
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-30 hidden"></div>
 
+    <header id="header" class="fixed w-full top-0 left-0 z-50 bg-transparent transition-all duration-300">
+        <div class="container flex items-center justify-between md:py-6 py-4">
+            <a href="#" class="h3">ONLY EYES</a>
+            <ul class="nav gap-10 hidden md:flex">
+                <li class="b1 hover:text-[var(--point-color)] transition-all"><a href="#doctor">의료진 소개</a></li>
+                <li class="b1 hover:text-[var(--point-color)] transition-all"><a href="#program">프로그램</a></li>
+                <li class="b1 hover:text-[var(--point-color)] transition-all"><a href="#ba-result">전후 비교</a></li>
+                <li class="b1 hover:text-[var(--point-color)] transition-all"><a href="#review">고객 후기</a></li>
+            </ul>
+            <a href="#submit"
+                class="py-2.5 px-5 bg-[var(--text-color)] rounded-lg text-white hidden md:block hover:bg-[var(--sub-text-color)] transition-all">상담
+                예약하기</a>
+            <button class="md:hidden z-50" id="menuBtn">
+                <span class="material-symbols-outlined">
+                    menu
+                </span>
+
+            </button>
+            <button class="hidden z-50" id="closeBtn">
+                <span class="material-symbols-outlined">
+                    close
+                </span>
+
+            </button>
+
+            <div id="mobileMenu"
+                class="fixed top-0 right-0 w-80 h-screen  bg-white translate-x-full transition-transform duration-300 md:hidden">
+                <nav class="flex flex-col mt-32 px-10 gap-8">
+                    <a href="#doctor" class="hover:text-[var(--point-color)]">의료진 소개</a>
+                    <a href="#program" class="hover:text-[var(--point-color)]">프로그램</a>
+                    <a href="#ba-result" class="hover:text-[var(--point-color)]">전후 비교</a>
+                    <a href="#review" class="hover:text-[var(--point-color)]">고객 후기</a>
+                </nav>
+            </div>
+        </div>
     </header>
 
     <!-- KV -->
-    <section class="h-screen">
-        <h1 class="h1 test">KV</h1>
-    </section>
+    <div class="kv kv-content h-screen overflow-hidden">
+        <div class="container md:grid md:grid-cols-2 flex flex-col-reverse items-center h-full py-4">
+            <div class="md:col-span-1 flex flex-col justify-center z-10">
+                <img class="h-10 object-center object-contain w-fit" src="./src/images/logo.png" alt="logo-title">
+                <h1 class="h1 leading-16 mt-2.5">가장 나다운 눈매,<br>
+                    온리아이의 섬세한 솔루션</h1>
+                <h3 class="mt-5 h3">과한 변화보다 본래의 인상에 자연스럽게 어우러지는 눈매를 디자인합니다.</h3>
+                <a href="#submit"
+                    class="b1 w-fit flex items-center border-1 py-3 px-4 mt-10 transition-all hover:bg-[var(--text-color)] hover:text-white">지금
+                    상담받기<span class="material-symbols-outlined">
+                        arrow_forward
+                    </span></a>
+            </div>
+            <div class="relative md:col-span-1 w-full h-full">
+                <img class="absolute bottom-0 right-0 scale-125 md:scale-175" src="./src/images/kv-img.png"
+                    alt="kv-img">
+            </div>
+        </div>
+    </div>
 
     <!-- intro -->
-    <section class="h-screen">
-        <div class="container">
-            <div class="intro-img w-full bg-amber-500 col-span-5"></div>
+    <section id="doctor">
+
+        <div class="container doctor-content md:grid md:grid-cols-12 gap-6 items-center">
+            <div class="intro-img common-bg w-full col-span-5 h-172 -mb-25"></div>
             <div class="intro-content col-start-7 col-span-6">
                 <h2 class="h2">눈 성형,</h2>
                 <h2 class="h2 ">자연스러움의 기준이 달라야 합니다.</h2>
@@ -33,28 +93,612 @@
                     개인의 눈꺼풀 두께, 눈매 방향,피부 여유, 얼굴 비율을 함께 고려해<br>
                     과하지 않고 오래 어울리는 눈매를 디자인합니다.
                 </p>
-                <h2 class="h2 py-1 mt-16 w-fit border-b border-[var(--sub-text-color)]">대표원장<span class="name ml-7">임준기</span></h2>
+                <h2 class="h2 py-1 mt-16 w-fit border-b border-[var(--sub-text-color)]">대표원장<span
+                        class="name ml-7">임준기</span></h2>
             </div>
         </div>
     </section>
 
     <!-- eye test -->
+    <section class="bg-[var(--section-bg-color)]">
+        <div class="container text-center">
+            <h2 class="h2">혹시, 이런 순간이 자주 있으신가요?</h2>
+            <p class="b1 mt-3">매일 반복되던 작은 불편함,눈매를 다시 살펴봐야 하는 신호일 수 있습니다.</p>
+            <div class="eye-content grid grid-cols-2 md:grid-cols-5 gap-6 mt-10">
+                <div class="col-span-1 eye-hover">
+                    <div class="card-img">
+                        <img src="./src/images/eye-1.png" alt="eye-img">
+                    </div>
+                    <div class="card-content">
+                        <p class="b1">피곤해 보인다는<br>
+                            말을 자주 듣나요?</p>
+                        <p class="caption">
+                            편하게 떠도 졸려 보인다면<br>
+                            눈 뜨는 힘을 확인해 볼 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-span-1 eye-hover">
+                    <div class="card-img">
+                        <img src="./src/images/eye-2.png" alt="eye-img">
+                    </div>
+                    <div class="card-content">
+                        <p class="b1">화장을 지우면<br>
+                            눈매가 흐려지나요?</p>
+                        <p class="caption">
+                            메이크업으로 또렷해 보이던 라인이<br>
+                            민낯에서는 덮이거나 흐려 보일 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-span-1 eye-hover">
+                    <div class="card-img">
+                        <img src="./src/images/eye-3.png" alt="eye-img">
+                    </div>
+                    <div class="card-content">
+                        <p class="b1">사진 찍을 때마다<br>
+                            같은 각도만 찾게 되나요?</p>
+                        <p class="caption">
+                            정면 사진에서 양쪽 눈 크기나 라인 차이가<br>
+                            더 도드라져 보일 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-span-1 eye-hover">
+                    <div class="card-img">
+                        <img src="./src/images/eye-4.png" alt="eye-img">
+                    </div>
+                    <div class="card-content">
+                        <p class="b1">눈 위가 무겁고<br>
+                            답답해 보이나요?</p>
+                        <p class="caption">
+                            눈 위가 무거워 보이면<br>
+                            답답한 인상으로 보일 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-span-1 eye-hover">
+                    <div class="card-img">
+                        <img src="./src/images/eye-5.png" alt="eye-img">
+                    </div>
+                    <div class="card-content">
+                        <p class="b1">예전에 수술했지만<br>
+                            계속 신경 쓰이나요?</p>
+                        <p class="caption">
+                            라인의 높이보다 현재 눈 상태와 <br>
+                            조직에 맞춰 다시 계획해야 할 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- process -->
+
+    <!-- eye element -->
+    <section class="bg-[var(--medi-bg-color)]">
+        <div class="container eyeel-content flex justify-between gap-y-5">
+            <div>
+                <h3 class="h3">눈 고민은 같아 보여도<br>
+                    원인은 다를 수 있습니다.</h3>
+                <p class="b1 mt-4">
+                    눈을 뜨는 힘, 피부와 지방의 두께,눈매의 균형 등<br>
+                    다양한 요소를 함께 확인해야 어울리는 라인을 찾을 수 있습니다.
+                </p>
+                <ul class="mt-5 gap-6 hidden md:flex">
+                    <li class="py-2 px-3 border">눈 뜨는 힘</li>
+                    <li class="py-2 px-3 border">피부 두께</li>
+                    <li class="py-2 px-3 border">지방량</li>
+                    <li class="py-2 px-3 border">눈매 균형</li>
+                    <li class="py-2 px-3 border">몽고 주름</li>
+                </ul>
+            </div>
+            <img class="max-w-210 w-full" src="./src/images/eye-element.png" alt="">
+        </div>
+    </section>
+
+    <!-- standard -->
+    <section>
+        <div class="container text-center">
+            <h3 class="h3">온리아이는 라인보다 기준을 먼저 봅니다</h3>
+            <p class="b1 mt-5">눈의 구조와 얼굴의 균형을 바탕으로<br>
+                자연스럽고 조화로운 결과를 만듭니다.</p>
+            <div class="grid grid-cols-3 standard-content w-full gap-6 lg:gap-24 mt-5">
+                <div class="col-span-1">
+                    <div class="card-img">
+                        <img src="./src/images/standard-1.png" alt="">
+                    </div>
+                    <div class="card-content items-center text-center">
+                        <p class="b1">눈만 보지 않습니다.</p>
+                        <p class="caption">
+                            얼굴형, 눈썹 위치, 전체 인상까지<br>
+                            함께 고려합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="card-img">
+                        <img src="./src/images/standard-2.png" alt="">
+                    </div>
+                    <div class="card-content items-center text-center">
+                        <p class="b1">과한 라인은 권하지 않습니다.</p>
+                        <p class="caption">
+                            자연스럽게 어울리는 범위안에서<br>
+                            필요한 변화만 제안합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="card-img">
+                        <img src="./src/images/standardp-3.png" alt="">
+                    </div>
+                    <div class="card-content items-center text-center">
+                        <p class="b1">정면만 보지 않습니다.</p>
+                        <p class="caption">
+                            다양한 표정과 각도에서<br>
+                            어색하지 않은 라인을 설계합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- program -->
+    <section id="program" class="bg-[var(--section-bg-color)]">
+        <div class="container">
+            <h2 class="h2 mb-10">눈 상태와 원하는 이미지에 따라 가장 적합한 프로그램을 제안합니다</h2>
+            <div class="program-content md:grid md:grid-cols-12">
+                <div class="md:col-span-5">
+                    <ul class="flex flex-col gap-8 accodian cursor-pointer">
+                        <li class="item border-b py-5">
+                            <button class="question cursor-pointer">
+                                <span class="caption mr-1.5">01</span>
+                                <span class="h3">자연유착 쌍꺼풀</span>
+                            </button>
 
+                            <div class="answer overflow-hidden max-h-0 transition-all duration-500">
+                                <p class="b1 pl-6">
+                                    눈꺼풀 손상을 최소화해 자연스러운 라인을 만드는 방식으로, 흉터 부담이 적고 회복이 빠릅니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="item border-b py-5">
+                            <button class="question cursor-pointer">
+                                <span class="caption mr-1.5">02</span>
+                                <span class="h3">절개 쌍꺼풀</span>
+                            </button>
+
+                            <div class="answer overflow-hidden max-h-0 transition-all duration-500">
+                                <p class="b1 pl-6">
+                                    눈꺼풀의 피부와 지방, 근육 상태를 직접 확인해 라인을 정교하게 만드는 방식으로, 처짐이 있거나 또렷한 라인을 원하는 경우에 적합합니다
+                                </p>
+                            </div>
+                        </li>
+                        <li class="item border-b py-5">
+                            <button class="question cursor-pointer">
+                                <span class="caption mr-1.5">03</span>
+                                <span class="h3">눈매교정</span>
+                            </button>
+
+                            <div class="answer overflow-hidden max-h-0 transition-all duration-500">
+                                <p class="b1 pl-6">
+                                    눈을 뜨는 힘과 눈꺼풀의 구조를 함께 고려해 졸려 보이는 인상을 개선하고, 보다 또렷하고 균형 잡힌 눈매를 완성합니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="item border-b py-5">
+                            <button class="question cursor-pointer">
+                                <span class="caption mr-1.5">04</span>
+                                <span class="h3">트임성형</span>
+                            </button>
+
+                            <div class="answer overflow-hidden max-h-0 transition-all duration-500">
+                                <p class="b1 pl-6">
+                                    개인의 눈 모양과 비율에 맞춰 앞·뒤·밑트임을 계획해 답답해 보이는 인상을 완화하고, 시원하고 자연스러운 눈매를 만듭니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="item border-b py-5">
+                            <button class="question cursor-pointer">
+                                <span class="caption mr-1.5">05</span>
+                                <span class="h3">상안검•하안검</span>
+                            </button>
+
+                            <div class="answer overflow-hidden max-h-0 transition-all duration-500">
+                                <p class="b1 pl-6">
+                                    늘어진 윗눈꺼풀과 눈 밑의 처짐·지방을 세밀하게 정리해, 무겁고 피곤해 보이는 인상을 한층 밝고 편안하게 개선합니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="item border-b py-5">
+                            <button class="question cursor-pointer">
+                                <span class="caption mr-1.5">06</span>
+                                <span class="h3">눈재수술</span>
+                            </button>
+
+                            <div class="answer overflow-hidden max-h-0 transition-all duration-500">
+                                <p class="b1 pl-6">
+                                    기존 수술의 라인과 유착, 흉터 및 조직 상태를 면밀하게 분석해 불만족의 원인을 교정하고, 자연스러운 눈매를 다시 설계합니다.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:col-span-5 md:col-start-8 relative w-full h-100 md:h-full">
+                    <img src="./src/images/program-1.png" alt="" class="program-img">
+                    <img src="./src/images/program-2.png" alt="" class="program-img">
+                    <img src="./src/images/program-3.png" alt="" class="program-img">
+                    <img src="./src/images/program-4.png" alt="" class="program-img">
+                    <img src="./src/images/program-5.png" alt="" class="program-img">
+                    <img src="./src/images/program-6.png" alt="" class="program-img">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- before&after  -->
+    <section id="ba-result" class="bg-[var(--medi-bg-color)]">
+        <div class="container text-center">
+            <h2 class="h2">같은 눈성형이라도 수술 방법에 따라 결과는 달라집니다</h2>
+            <p class="b1 mt-3 mb-8">과하지 않게, 눈매에 필요한 변화만 담았습니다.</p>
+            <div class="ba-content grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="bg-white col-span-1 p-6 ba-card">
+                    <div class="flex">
+                        <div
+                            class="before-img common-bg w-1/2 flex justify-start p-3 aspect-square border-r border-white">
+                            <p class="before caption px-3 w-fit h-fit py-1 rounded-sm">Before</p>
+                        </div>
+                        <div class="after-img common-bg w-1/2 flex justify-end p-3">
+                            <p class="after caption w-fit h-fit px-3 py-1 rounded-sm">After</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between px-3 mt-6">
+                        <p class="b1">자연유착 쌍꺼풀</p>
+                        <p class="caption">수술 후 3개월</p>
+                    </div>
+                </div>
+                <div class="bg-white col-span-1 p-6 ba-card">
+                    <div class="flex">
+                        <div
+                            class="before-img common-bg w-1/2 flex justify-start p-3 aspect-square border-r border-white">
+                            <p class="before caption px-3 w-fit h-fit py-1 rounded-sm">Before</p>
+                        </div>
+                        <div class="after-img common-bg w-1/2 flex justify-end p-3">
+                            <p class="after caption w-fit h-fit px-3 py-1 rounded-sm">After</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between px-3 mt-6">
+                        <p class="b1">비절개 눈매교정</p>
+                        <p class="caption">수술 후 3개월</p>
+                    </div>
+                </div>
+                <div class="bg-white col-span-1 p-6 ba-card">
+                    <div class="flex">
+                        <div
+                            class="before-img common-bg w-1/2 flex justify-start p-3 aspect-square border-r border-white">
+                            <p class="before caption px-3 w-fit h-fit py-1 rounded-sm">Before</p>
+                        </div>
+                        <div class="after-img common-bg w-1/2 flex justify-end p-3">
+                            <p class="after caption w-fit h-fit px-3 py-1 rounded-sm">After</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between px-3 mt-6">
+                        <p class="b1">앞트임 · 뒤트임</p>
+                        <p class="caption">수술 후 3개월</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <!-- process -->
+    <section class="process common-bg">
+        <div class="container">
+            <h2 class="h2">
+                상담부터 수술 후 회복까지<br>
+                단계마다 세심하게 관리합니다.
+            </h2>
+            <p class="b1 mt-5">
+                정밀한 진단과 체계적인 수술 시스템을 바탕으로<br>
+                수술 후 회복 과정까지 꼼꼼하게 살핍니다.
+            </p>
+
+            <div class="process-content grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-30">
+                <div
+                    class="flex flex-col px-3 py-6 bg-white hover:bg-[var(--point-color)] hover:text-white rounded-3xl gap-5 justify-center items-center text-center">
+                    <p class="b1 -mb-3">01</p>
+                    <p class="b1">슬릿램프 정밀검사</p>
+                    <img src="./src/images/process-1.png" alt="process01">
+                    <p class="b1">눈 표면과 눈꺼풀 상태를<br>
+                        세밀하게 확인합니다.</p>
+                </div>
+                <div
+                    class="flex flex-col px-3 py-6 bg-white hover:bg-[var(--point-color)] hover:text-white transition-all rounded-3xl gap-5 justify-center items-center text-center">
+                    <p class="b1 -mb-3">02</p>
+                    <p class="b1">디지털 눈매 분석</p>
+                    <img src="./src/images/process-2.png" alt="process01">
+                    <p class="b1">얼굴 비율과 눈매 방향을<br>
+                        입체적으로 분석합니다.</p>
+                </div>
+                <div
+                    class="flex flex-col px-3 py-6 bg-white hover:bg-[var(--point-color)] hover:text-white transition-all rounded-3xl gap-5 justify-center items-center text-center">
+                    <p class="b1 -mb-3">03</p>
+                    <p class="b1">고배율 확대 수술</p>
+                    <img src="./src/images/process-3.png" alt="process01">
+                    <p class="b1">미세한 조직까지 정교하게<br>
+                        확인하며 수술합니다.</p>
+                </div>
+                <div
+                    class="flex flex-col px-3 py-6 bg-white hover:bg-[var(--point-color)] hover:text-white transition-all rounded-3xl gap-5 justify-center items-center text-center">
+                    <p class="b1 -mb-3">04</p>
+                    <p class="b1">4K 내시경 시스템</p>
+                    <img src="./src/images/process-4.png" alt="process01">
+                    <p class="b1">정확한 시야 확보로<br>
+                        섬세한 수술을 돕습니다.</p>
+                </div>
+                <div
+                    class="flex flex-col px-3 py-6 bg-white hover:bg-[var(--point-color)] hover:text-white transition-all rounded-3xl gap-5 justify-center items-center text-center">
+                    <p class="b1 -mb-3">05</p>
+                    <p class="b1">회복 케어 장비</p>
+                    <img src="./src/images/process-5.png" alt="process01">
+                    <p class="b1">회복 과정과 붓기 관리를 위한<br>
+                        케어를 진행합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- review -->
+    <section class="bg-[var(--section-bg-color)]" id="review">
+        <div class="container">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="review-card">
+                            <div class="review-img">
+                                <img src="./src/images/review-1.png" alt="review">
+                            </div>
+                            <p
+                                class="label rounded-4xl w-fit text-[var(--sub-text-color)] p-2 bg-[var(--medi-bg-color)]">
+                                자연유착
+                                쌍꺼풀</p>
+                            <h3 class="h3">"친구들은 그냥 화장 바꾼 줄 알았대요."</h3>
+                            <p class="b1">라인이 너무 진하거나 티 날까 봐 걱정했는데, 생각보다 제 눈에 자연스럽게 자리 잡았어요. 눈을 감았을 때도 부담스럽지 않은 점이 가장
+                                마음에 들어요.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-card">
+                            <div class="review-img">
+                                <img src="./src/images/review-2.png" alt="review">
+                            </div>
+                            <p
+                                class="label rounded-4xl w-fit text-[var(--sub-text-color)] p-2 bg-[var(--medi-bg-color)]">
+                                비절개 눈매교정</p>
+                            <h3 class="h3">“한쪽 눈만 작아 보이던 게 많이 자연스러워졌어요”</h3>
+                            <p class="b1">평소 한쪽 눈이 더 작아 보여서 사진을 찍을 때마다
+                                신경 쓰였는데 지금은 억지로 크게 뜨지 않아도 눈매가 한결 또렷해 보여서 편해요.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-card">
+                            <div class="review-img">
+                                <img src="./src/images/review-3.png" alt="review">
+                            </div>
+                            <p
+                                class="label rounded-4xl w-fit text-[var(--sub-text-color)] p-2 bg-[var(--medi-bg-color)]">
+                                앞트임</p>
+                            <h3 class="h3">“앞쪽이 답답해 보이던 느낌이 덜해졌어요”</h3>
+                            <p class="b1">눈 사이가 답답해 보이는 게 고민이었지만,
+                                너무 많이 트이는 건 원하지 않았어요. 인상은 부드러워졌는데 수술한 느낌이 강하지 않아서 만족해요.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-card">
+                            <div class="review-img">
+                                <img src="./src/images/review-4.png" alt="review">
+                            </div>
+                            <p
+                                class="label rounded-4xl w-fit text-[var(--sub-text-color)] p-2 bg-[var(--medi-bg-color)]">
+                                절개 쌍꺼풀</p>
+                            <h3 class="h3">“붓기는 있었지만, 지금 라인은 마음에 들어요”</h3>
+                            <p class="b1">라인이 너무 진하거나 티 날까 봐 걱정했는데, 생각보다 제 눈에 자연스럽게 자리 잡았어요. 눈을 감았을 때도 부담스럽지 않은 점이 가장
+                                마음에 들어요.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-card">
+                            <div class="review-img">
+                                <img src="./src/images/review-5.png" alt="review">
+                            </div>
+                            <p
+                                class="label rounded-4xl w-fit text-[var(--sub-text-color)] p-2 bg-[var(--medi-bg-color)]">
+                                쌍꺼풀 재수술</p>
+                            <h3 class="h3">“두 번째 수술이라 더 꼼꼼하게 알아봤어요”</h3>
+                            <p class="b1">기존 라인이 자꾸 풀리고 좌우 높이도 달라 보여서 재수술을 결정했는데 상담 할때 너무 꼼꼼히 봐주셔서 안심 됐고 수술도 너무 잘 된거
+                                같아요!!!</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-card">
+                            <div class="review-img">
+                                <img src="./src/images/review-6.png" alt="review">
+                            </div>
+                            <p
+                                class="label rounded-4xl w-fit mt-2 text-[var(--sub-text-color)] p-2 bg-[var(--medi-bg-color)]">
+                                뒤트임·밑트임</p>
+                            <h3 class="h3">“옆에서 봤을 때 눈매가 훨씬 부드러워졌어요”</h3>
+                            <p class="b1">사진을 찍으면 눈꼬리가 올라가 보이는 게 늘 신경 쓰였는데 지금은 정면뿐 아니라 옆모습에서도 눈매가
+                                덜 날카로워 보여서 만족해요.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- brand-worth -->
+    <section class="brand-worth">
+        <div class="container flex flex-col gap-2 items-center text-center py-30 text-white">
+            <h3 class="h3">눈은, 인상을 가장 오래 기억하게 합니다</h3>
+            <h2 class="h2">오늘보다, 오래 어울리는 눈매를 생각합니다</h2>
+            <p class="b1">과한 변화보다 본래의 인상과 자연스럽게 이어지는<br>
+                균형 있는 눈매를 디자인합니다.</p>
+        </div>
+    </section>
+
+    <!-- submit -->
+    <section class="bg-[var(--section-bg-color)]" id="submit">
+        <div class="container submit-content flex flex-col-reverse lg:grid lg:grid-cols-12 gap-6">
+            <div class="col-span-4">
+
+                <div class="pb-6 border-b border-b-gray-300">
+                    <h3 class="h3">내 눈에 필요한 변화,<br>
+                        상담에서 함께 확인해보세요</h3>
+                    <p class="b1 mt-5">간단한 정보를 남겨주시면 담당자가 확인 후<br>
+                        상담 가능한 시간을 안내해드립니다.</p>
+                </div>
+
+                <div class="flex gap-3 py-6 border-b border-b-gray-300">
+                    <span class="material-symbols-outlined">
+                        location_on
+                    </span>
+                    <div class="gap-2">
+                        <p class="b1 font-extrabold">주소</p>
+                        <p class="b1">경기 수원시 팔달구 권광로 199
+                            온리아이타워 5층</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-3 py-6 border-b border-b-gray-300">
+                    <span class="material-symbols-outlined">
+                        schedule
+                    </span>
+                    <div class="gap-2">
+                        <p class="b1 font-extrabold">진료 시간</p>
+                        <p class="b1">월–금 : AM 10:00 ~ PM 07:00 <br>
+                            토요일 : AM 10:00 ~ PM 04:00</p>
+                        <p class="caption">(일요일 •공휴일 휴진)</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 py-6 border-b border-b-gray-300">
+                    <span class="material-symbols-outlined">
+                        call
+                    </span>
+                    <div class="gap-2">
+                        <p class="b1 font-extrabold">대표전화</p>
+                        <p class="b1">Tel. 031-238-8575</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-span-6 col-start-7 flex flex-col gap-4">
+                <div class="md:flex gap-4">
+                    <div class="w-full flex flex-col gap-1">
+                        <p class="b1">성함</p>
+                        <input class="input" type="text" placeholder="이름을 입력해주세요.">
+                    </div>
+                    <div class="w-full flex flex-col gap-1">
+                        <p class="b1">연락처</p>
+                        <input class="input" type="tel" id="phone" inputmode="numeric" maxlength="13"
+                            placeholder="010-0000-0000">
+                    </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <p class="b1">관심 시술 (선택)</p>
+                    <select name="관심시술" class="input invalid:text-gray-400" required>
+                        <option value="" selected disabled hidden>선택해주세요.</option>
+                        <option value="" class="text-[var(--text-color)]">자연유착 쌍꺼풀</option>
+                        <option value="" class="text-[var(--text-color)]">절개 쌍꺼풀</option>
+                        <option value="" class="text-[var(--text-color)]">눈매교정</option>
+                        <option value="" class="text-[var(--text-color)]">트임성형</option>
+                        <option value="" class="text-[var(--text-color)]">상안검•하안검</option>
+                        <option value="" class="text-[var(--text-color)]">눈재수술</option>
+                    </select>
+                </div>
+                <div class="md:flex gap-4">
+                    <div class="w-full flex flex-col gap-1">
+                        <p class="b1">상담 희망 시간</p>
+                        <select name="희망 시간" class="input invalid:text-gray-400" required>
+                            <option value="" selected disabled hidden>시간 선택</option>
+                            <option value="" class="text-[var(--text-color)]">09:00~10:00</option>
+                            <option value="" class="text-[var(--text-color)]">10:00~11:00</option>
+                            <option value="" class="text-[var(--text-color)]">11:00~12:00</option>
+                            <option value="" class="text-[var(--text-color)]">13:00~14:00</option>
+                            <option value="" class="text-[var(--text-color)]">14:00~15:00</option>
+                            <option value="" class="text-[var(--text-color)]">15:00~16:00</option>
+                        </select>
+                    </div>
+                    <div class="w-full flex flex-col gap-1">
+                        <p class="b1">상담 방법</p>
+                        <select name="상담 방법" class="input invalid:text-gray-400" required>
+                            <option value="" selected disabled hidden>방법 선택</option>
+                            <option value="" class="text-[var(--text-color)]">전화</option>
+                            <option value="" class="text-[var(--text-color)]">이메일</option>
+                            <option value="" class="text-[var(--text-color)]">카카오톡</option>
+                        </select>
+                    </div>
+                </div>
+                <div class=" flex flex-col gap-1">
+                    <p class="b1">상담 방법</p>
+                    <textarea class="input resize-none" id="message" rows="3" maxlength="200"
+                        placeholder="현재 고민이나 궁금한 내용을 간단히 남겨주세요."></textarea>
+                </div>
+                <div class="flex">
+                    <input type="checkbox">
+                    <p class="label ml-2">개인정보 수집 및 이용에 동의합니다. 수집한 정보는 상담 목적 외에 사용되지 않습니다.</p>
+                </div>
+                <button class="b1 bg-[var(--text-color)] text-white p-2 w-full flex items-center justify-center">
+                    상담 신청하기<span class="material-symbols-outlined">
+                        arrow_forward
+                    </span></a>
+                </button>
+            </div>
+        </div>
+    </section>
 
 
     <footer>
+        <div class="container flex flex-col-reverse md:flex-row gap-40  text-white py-25 items-start gap-y-5">
+            <div class="logo h-fit">
+                <img src="./src/images/logo-white.png" alt="">
+            </div>
+            <div class="flex flex-wrap w-full justify-between gap-y-6">
+                <div class="flex flex-wrap max-w-125 gap-8 gap-y-5">
+                    <p class="caption">온리아이 성형외과 의원</p>
+                    <p class="caption">대표원장: 임준기</p>
+                    <p class="caption">사업자등록번호 : 123-45-67890</p>
+                    <p class="caption">주소. 경기 수원시 팔달구 권광로 199 온리아이타워 5층</p>
+                    <p class="caption">대표전화 : 031-238-8575</p>
+                    <p class="caption">COPYRIGHT ⓒ ONLY EYE PLASTIC SURGERY.RIGHTS RESERVED.</p>
+                </div>
 
+                <div class="flex gap-15 flex-col gap-y-4 items-start lg:items-end">
+                    <button class="caption">개인정보처리방침</button>
+                    <button class="caption">이용약관</button>
+                    <button class="caption">비급여 진료비 안내</button>
+                </div>
+            </div>
+        </div>
     </footer>
 
 
 
 
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.js"></script>
 
     <script src="./src/js/main.js"></script>
+
 </body>
 
 </html>
