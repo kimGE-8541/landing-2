@@ -80,7 +80,7 @@ section {
 }
 
 .intro-img {
-    background-image: url(../../src/images/doctor-img.png);
+    background-image: url(../../images/doctor-img.png);
 }
 
 .eye-hover:hover img {
@@ -137,27 +137,27 @@ section {
 
 
 .ba-card:nth-child(1) .before-img {
-    background-image: url(../../src/images/ba-1-before.png);
+    background-image: url(../../images/ba-1-before.png);
 }
 
 .ba-card:nth-child(2) .before-img {
-    background-image: url(../../src/images/ba-2-before.png);
+    background-image: url(../../images/ba-2-before.png);
 }
 
 .ba-card:nth-child(3) .before-img {
-    background-image: url(../../src/images/ba-3-before.png);
+    background-image: url(../../images/ba-3-before.png);
 }
 
 .ba-card:nth-child(1) .after-img {
-    background-image: url(../../src/images/ba-1-after.png);
+    background-image: url(../../images/ba-1-after.png);
 }
 
 .ba-card:nth-child(2) .after-img {
-    background-image: url(../../src/images/ba-2-after.png);
+    background-image: url(../../images/ba-2-after.png);
 }
 
 .ba-card:nth-child(3) .after-img {
-    background-image: url(../../src/images/ba-3-after.png);
+    background-image: url(../../images/ba-3-after.png);
 }
 
 .after-img {
@@ -165,7 +165,7 @@ section {
 }
 
 .process {
-    background-image: url(../../src/images/process-bg.png);
+    background-image: url(../../images/process-bg.png);
 }
 
 .review-card {
@@ -183,7 +183,7 @@ section {
 
 .brand-worth {
     background-color: gray;
-    background-image: url(../../src/images/brand-bg.png);
+    background-image: url(../../images/brand-bg.png);
     background-blend-mode: multiply;
 }
 
